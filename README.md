@@ -4,7 +4,7 @@
 [![Gem](https://img.shields.io/gem/dt/vagrant-trellis-cert.svg)](https://rubygems.org/gems/vagrant-trellis-cert)
 [![Dependency Status](https://gemnasium.com/badges/github.com/TypistTech/vagrant-trellis-cert.svg)](https://gemnasium.com/github.com/TypistTech/vagrant-trellis-cert)
 [![license](https://img.shields.io/github/license/TypistTech/vagrant-trellis-cert.svg)](https://github.com/TypistTech/vagrant-trellis-cert/blob/master/LICENSE)
-[![Donate via PayPal](https://img.shields.io/badge/Donate-PayPal-blue.svg)](https://www.typist.tech/donate/sunny/)
+[![Donate via PayPal](https://img.shields.io/badge/Donate-PayPal-blue.svg)](https://www.typist.tech/donate/vagrant-trellis-cert/)
 [![Hire Typist Tech](https://img.shields.io/badge/Hire-Typist%20Tech-ff69b4.svg)](https://www.typist.tech/contact/)
 
 Trust Trellis self-signed certificates with single command
