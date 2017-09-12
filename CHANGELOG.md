@@ -1,8 +1,17 @@
 # Change Log
 
-## [0.1.0](https://github.com/TypistTech/vagrant-trellis-cert/tree/0.1.0) (2017-09-12)
+## [v0.1.1](https://github.com/TypistTech/vagrant-trellis-cert/tree/v0.1.1) (2017-09-12)
+[Full Changelog](https://github.com/TypistTech/vagrant-trellis-cert/compare/v0.1.0...v0.1.1)
+
 **Merged pull requests:**
 
+- Fix: Uninitialized constant [\#5](https://github.com/TypistTech/vagrant-trellis-cert/pull/5) ([TangRufus](https://github.com/TangRufus))
+
+## [v0.1.0](https://github.com/TypistTech/vagrant-trellis-cert/tree/v0.1.0) (2017-09-12)
+**Merged pull requests:**
+
+- Version bump 0.1.0 [\#4](https://github.com/TypistTech/vagrant-trellis-cert/pull/4) ([TangRufus](https://github.com/TangRufus))
+- bundle exec rubocop --auto-correct [\#3](https://github.com/TypistTech/vagrant-trellis-cert/pull/3) ([TangRufus](https://github.com/TangRufus))
 - first release [\#2](https://github.com/TypistTech/vagrant-trellis-cert/pull/2) ([TangRufus](https://github.com/TangRufus))
 - Fix: Incorrect link [\#1](https://github.com/TypistTech/vagrant-trellis-cert/pull/1) ([TangRufus](https://github.com/TangRufus))
 
