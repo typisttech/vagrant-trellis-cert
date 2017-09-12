@@ -14,7 +14,7 @@ module VagrantTrellisCert
       opts = OptionParser.new do |o|
         o.banner = "Usage: vagrant trellis-cert [--path <path>]"
         o.separator ""
-        o.version = VagrantSudoRsync::Identity.version
+        o.version = VagrantTrellisCert::Identity.version
         o.program_name = "vagrant trellis-cert"
 
         o.on("--path <path>", String, "Path to the Trellis root") do |path|
