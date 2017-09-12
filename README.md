@@ -7,7 +7,7 @@
 [![Donate via PayPal](https://img.shields.io/badge/Donate-PayPal-blue.svg)](https://www.typist.tech/donate/vagrant-trellis-cert/)
 [![Hire Typist Tech](https://img.shields.io/badge/Hire-Typist%20Tech-ff69b4.svg)](https://www.typist.tech/contact/)
 
-Trust Trellis self-signed certificates with single command
+Trust all Trellis self-signed certificates with single command
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
@@ -15,6 +15,7 @@ Trust Trellis self-signed certificates with single command
 
 - [Installation](#installation)
 - [Usage](#usage)
+- [Going super lazy](#going-super-lazy)
 - [Limitations](#limitations)
 - [Support!](#support)
   - [Donate via PayPal *](#donate-via-paypal-)
@@ -38,7 +39,41 @@ $ vagrant plugin install vagrant-trellis-cert
 
 ```bash
 # Trust all certificates on a Trellis vagrant VM
+$ vagrant trellis-cert [--path <path>]
+
+# Example: Running at Trellis root
 $ vagrant trellis-cert
+
+# Example: Specify Trellis root
+$ vagrant trellis-cert --path /path/to/trellis
+```
+
+## Going super lazy
+
+If the [vagrant-triggers](https://github.com/emyl/vagrant-triggers) plugin is installed, we can run the command on Vagrant state changes like `vagrant up` and `vagrant reload`. Add these line into Trellis' `Vagrantfile`:
+
+```ruby
+# Vagrantfile
+
+# Some lines of code...
+
+Vagrant.configure('2') do |config|
+
+  # Some more lines of code later...
+
+  config.trigger.after :up, :stdout => true do
+    run "vagrant trellis-cert"
+  end
+
+  config.trigger.after :provision, :stdout => true do
+    run "vagrant trellis-cert"
+  end
+
+  config.trigger.after :reload, :stdout => true do
+    run "vagrant trellis-cert"
+  end
+
+end
 ```
 
 ## Limitations
@@ -46,7 +81,6 @@ $ vagrant trellis-cert
 Pull requests are welcome!
 
 - Only works on macOS
-- Certificates must at Trellis default location, i.e.: `/etc/nginx/ssl/*.`
 
 ## Support!
 
