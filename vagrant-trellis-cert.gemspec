@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Tang Rufus", "Typist Tech"]
   spec.email         = ["tangrufus@gmail.com", "vagrant-trellis-cert@typist.tech"]
 
-  spec.summary       = "Trust all Trellis self-signed certificates with single command"
+  spec.summary       = VagrantPlugins::TrellisCert::Identity.summary
   spec.homepage      = "https://www.typist.tech/projects/vagrant-trellis-cert"
   spec.license       = "MIT"
 

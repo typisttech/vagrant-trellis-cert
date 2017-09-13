@@ -1,30 +1,31 @@
 # frozen_string_literal: true
 
 require "fileutils"
+require "vagrant"
 require "yaml"
 
 module VagrantPlugins
   module TrellisCert
     module Commands
       class Trust < Vagrant.plugin("2", :command)
-        def self.synopsis
-          "trust all Trellis self-signed certificates"
-        end
-
         def execute
           options = {}
-          opts = OptionParser.new do |o|
-            o.banner = "Usage: vagrant trellis-cert [--path <path>]"
-            o.separator ""
-            o.version = Identity.version
-            o.program_name = "vagrant trellis-cert"
 
-            o.on("--path <path>", String, "Path to the Trellis root") do |path|
+          opts = OptionParser.new do |o|
+            o.banner = "Usage: vagrant trellis-cert trust [options]"
+            o.separator ""
+
+            o.on("-p", "--path PATH", String, "Path to the Trellis root") do |path|
               options[:path] = path
             end
-          end
-          argv = parse_options(opts)
 
+            o.on("-h", "--help", "Print this help") do
+              @env.ui.info(opts)
+              exit
+            end
+          end
+
+          parse_options(opts)
           @path = options[:path] || "."
 
           FileUtils.rm_rf(tmp_path)
