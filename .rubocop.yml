@@ -1,10 +1,11 @@
 inherit_from:
-  - https://raw.githubusercontent.com/bbatsov/rubocop/master/config/enabled.yml
-  - https://raw.githubusercontent.com/rails/rails/master/.rubocop.yml
+  - .rubocop.rails.yml
 
-Style/Documentation:
-  Enabled: false
+AllCops:
+  TargetRubyVersion: 2.3
 
-Style/StringLiterals:
-  Enabled: true
-  EnforcedStyle: double_quotes
+Layout/IndentationConsistency:
+  EnforcedStyle: normal
+
+Metrics/LineLength:
+  Max: 156
