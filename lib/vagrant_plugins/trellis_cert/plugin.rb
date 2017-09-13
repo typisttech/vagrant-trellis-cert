@@ -6,8 +6,8 @@ module VagrantPlugins
       name Identity.name
 
       command "trellis-cert" do
-        require_relative "command"
-        Command
+        require_relative "commands/trust"
+        Commands::Trust
       end
     end
   end
