@@ -2,11 +2,11 @@
 
 lib = File.expand_path("../lib", __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "vagrant_trellis_cert/identity"
+require "vagrant_plugins/trellis_cert/identity.rb"
 
 Gem::Specification.new do |spec|
-  spec.name          = VagrantTrellisCert::Identity.name
-  spec.version       = VagrantTrellisCert::Identity.version
+  spec.name          = VagrantPlugins::TrellisCert::Identity.name
+  spec.version       = VagrantPlugins::TrellisCert::Identity.version
   spec.authors       = ["Tang Rufus", "Typist Tech"]
   spec.email         = ["tangrufus@gmail.com", "vagrant-trellis-cert@typist.tech"]
 
