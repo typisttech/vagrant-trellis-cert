@@ -1,8 +1,9 @@
 # frozen_string_literal: true
 
 require "fileutils"
+require "optparse"
 require "vagrant"
-require "yaml"
+require "vagrant_plugins/trellis_cert/trellis"
 
 module VagrantPlugins
   module TrellisCert
@@ -10,7 +11,6 @@ module VagrantPlugins
       class Trust < Vagrant.plugin("2", :command)
         def execute
           options = {}
-
           opts = OptionParser.new do |o|
             o.banner = "Usage: vagrant trellis-cert trust [options]"
             o.separator ""
@@ -24,64 +24,47 @@ module VagrantPlugins
               exit
             end
           end
-
           parse_options(opts)
-          @path = options[:path] || "."
 
-          FileUtils.rm_rf(tmp_path)
-          FileUtils.mkdir_p(tmp_path)
+          path = options[:path] || "."
 
-          canonical_hosts.each do |host|
-            system("openssl s_client -showcerts -connect #{host}:443 </dev/null 2>/dev/null | openssl x509 -outform PEM > #{tmp_path}/#{host}.pem 2>/dev/null")
+          tmp_dir = File.join(@env.tmp_path, Identity.name)
+          FileUtils.mkdir_p(tmp_dir)
+          begin
+            results = hosts(path: path).group_by { |host| trust(host: host, tmp_dir: tmp_dir) }
+
+            print_success_messages_for(successes: results.dig(true))
+            print_error_messages_for(failures: results.dig(false))
+          ensure
+            FileUtils.rm_rf(tmp_dir)
           end
 
-          canonical_hosts.each do |host|
-            success = system("security add-trusted-cert -k ~/Library/Keychains/login.keychain #{tmp_path}/#{host}.pem >/dev/null 2>/dev/null")
-
-            if success
-              @env.ui.success("#{host} certificate imported successfully")
-            else
-              @env.ui.error("#{host} certificate import failed")
-            end
-          end
-
-          FileUtils.rm_rf(tmp_path)
+          exit_code_for(results: results)
         end
 
-        def canonical_hosts
-          site_hosts.map do |host|
-            if !host.is_a?(Hash) || !host.key?("canonical")
-              fail_with_message File.read(File.join(@path, "roles/common/templates/site_hosts.j2")).sub!("{{ env }}", "development").gsub!(/com$/, "dev")
-            end
-
-            host.fetch("canonical")
+        def print_success_messages_for(successes:)
+          successes&.each do |host|
+            @env.ui.success("#{host} certificate imported successfully")
           end
         end
 
-        def site_hosts
-          sites.flat_map { |(_name, site)| site["site_hosts"] }
-        end
-
-        def sites
-          unless File.exist?(config_file)
-            fail_with_message "#{config_file} was not found. Please run `$ vagrant trellis-cert` with `--path` option"
-          end
-
-          YAML.load_file(config_file)["wordpress_sites"].tap do |sites|
-            fail_with_message "No sites found in #{config_file}." if sites.to_h.empty?
+        def print_error_messages_for(failures:)
+          failures&.each do |host|
+            @env.ui.error("#{host} certificate import failed")
           end
         end
 
-        def config_file
-          File.join(@path, "group_vars", "development", "wordpress_sites.yml")
+        def exit_code_for(results:)
+          results.dig(false).nil? ? 0 : 1
         end
 
-        def fail_with_message(msg)
-          raise Vagrant::Errors::VagrantError.new, msg
+        def trust(host:, tmp_dir:)
+          system("openssl s_client -showcerts -connect #{host}:443 </dev/null 2>/dev/null | openssl x509 -outform PEM > #{tmp_dir}/#{host}.pem 2>/dev/null")
+          system("security add-trusted-cert -k ~/Library/Keychains/login.keychain #{tmp_dir}/#{host}.pem >/dev/null 2>/dev/null")
         end
 
-        def tmp_path
-          "#{@env.tmp_path}/#{Identity.name}"
+        def hosts(path:)
+          @hosts ||= Trellis.new(path: path).canonicals
         end
       end
     end
