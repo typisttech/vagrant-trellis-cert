@@ -1,2 +1,10 @@
 inherit_from:
+  - https://raw.githubusercontent.com/bbatsov/rubocop/master/config/enabled.yml
   - https://raw.githubusercontent.com/rails/rails/master/.rubocop.yml
+
+Style/Documentation:
+  Enabled: false
+
+Style/StringLiterals:
+  Enabled: true
+  EnforcedStyle: double_quotes
