@@ -7,7 +7,7 @@
 [![Donate via PayPal](https://img.shields.io/badge/Donate-PayPal-blue.svg)](https://www.typist.tech/donate/vagrant-trellis-cert/)
 [![Hire Typist Tech](https://img.shields.io/badge/Hire-Typist%20Tech-ff69b4.svg)](https://www.typist.tech/contact/)
 
-Trust all Trellis self-signed certificates with single command
+Trust Trellis self-signed certificates with single command
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
@@ -38,15 +38,14 @@ $ vagrant plugin install vagrant-trellis-cert
 ## Usage
 
 ```bash
-# Trust all certificates on a Trellis vagrant VM
+# Trust Trellis certificates on a Trellis vagrant VM
 #
-# Usage: vagrant trellis-cert [options]
+# Usage: vagrant trellis-cert trust [options]
 #
 #    -p, --path PATH                  Path to the Trellis root
 #    -h, --help                       Print this help
 
-
-# Example: Running at Trellis root
+# Example: Running at Trellis root (same level with ansible.cfg)
 $ vagrant trellis-cert trust
 
 # Example: Specify Trellis root
@@ -55,7 +54,7 @@ $ vagrant trellis-cert trust --path /path/to/trellis
 
 ## Going super lazy
 
-If the [vagrant-triggers](https://github.com/emyl/vagrant-triggers) plugin is installed, we can run the command on Vagrant state changes like `vagrant up` and `vagrant reload`. Add these line into Trellis' `Vagrantfile`:
+If the [vagrant-triggers](https://github.com/emyl/vagrant-triggers) plugin is installed, we can run the command on Vagrant state changes like `vagrant provision`. Add these lines into Trellis' `Vagrantfile`:
 
 ```ruby
 # Vagrantfile
@@ -63,21 +62,11 @@ If the [vagrant-triggers](https://github.com/emyl/vagrant-triggers) plugin is in
 # Some lines of code...
 
 Vagrant.configure('2') do |config|
-
   # Some more lines of code later...
-
-  config.trigger.after :up, :stdout => true do
-    run "vagrant trellis-cert trust"
-  end
 
   config.trigger.after :provision, :stdout => true do
     run "vagrant trellis-cert trust"
   end
-
-  config.trigger.after :reload, :stdout => true do
-    run "vagrant trellis-cert trust"
-  end
-
 end
 ```
 
