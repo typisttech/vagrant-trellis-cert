@@ -7,7 +7,7 @@ git_source(:github) { |repo_name| "https://github.com/#{repo_name}" }
 embedded_directories = %w(/Applications/Vagrant/embedded /opt/vagrant/embedded)
 embedded_directories.each do |path|
   if File.directory?(path)
-    ENV["VAGRANT_INSTALLER_EMBEDDED_DIR"] = path
+      ENV["VAGRANT_INSTALLER_EMBEDDED_DIR"] = path
   end
 end
 
