@@ -39,13 +39,18 @@ $ vagrant plugin install vagrant-trellis-cert
 
 ```bash
 # Trust all certificates on a Trellis vagrant VM
-$ vagrant trellis-cert [--path <path>]
+#
+# Usage: vagrant trellis-cert [options]
+#
+#    -p, --path PATH                  Path to the Trellis root
+#    -h, --help                       Print this help
+
 
 # Example: Running at Trellis root
-$ vagrant trellis-cert
+$ vagrant trellis-cert trust
 
 # Example: Specify Trellis root
-$ vagrant trellis-cert --path /path/to/trellis
+$ vagrant trellis-cert trust --path /path/to/trellis
 ```
 
 ## Going super lazy
@@ -62,15 +67,15 @@ Vagrant.configure('2') do |config|
   # Some more lines of code later...
 
   config.trigger.after :up, :stdout => true do
-    run "vagrant trellis-cert"
+    run "vagrant trellis-cert trust"
   end
 
   config.trigger.after :provision, :stdout => true do
-    run "vagrant trellis-cert"
+    run "vagrant trellis-cert trust"
   end
 
   config.trigger.after :reload, :stdout => true do
-    run "vagrant trellis-cert"
+    run "vagrant trellis-cert trust"
   end
 
 end
