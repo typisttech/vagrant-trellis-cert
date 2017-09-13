@@ -11,21 +11,7 @@ module VagrantPlugins
       class Trust < Vagrant.plugin("2", :command)
         def execute
           options = {}
-          opts = OptionParser.new do |o|
-            o.banner = "Usage: vagrant trellis-cert trust [options]"
-            o.separator ""
-
-            o.on("-p", "--path PATH", String, "Path to the Trellis root") do |path|
-              options[:path] = path
-            end
-
-            o.on("-h", "--help", "Print this help") do
-              @env.ui.info(opts)
-              exit
-            end
-          end
-          parse_options(opts)
-
+          parse_options(option_parser(options: options))
           path = options[:path] || "."
 
           tmp_dir = File.join(@env.tmp_path, Identity.name)
@@ -40,6 +26,22 @@ module VagrantPlugins
           end
 
           exit_code_for(results: results)
+        end
+
+        def option_parser(options:)
+          OptionParser.new do |opts|
+            opts.banner = "Usage: vagrant trellis-cert trust [options]"
+            opts.separator ""
+
+            opts.on("-p", "--path PATH", String, "Path to the Trellis root") do |path|
+              options[:path] = path
+            end
+
+            opts.on("-h", "--help", "Print this help") do
+              @env.ui.info(opts)
+              exit
+            end
+          end
         end
 
         def print_success_messages_for(successes:)

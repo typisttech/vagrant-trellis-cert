@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "optparse"
 require "vagrant"
 
@@ -23,7 +25,7 @@ module VagrantPlugins
         end
 
         def execute
-          return help if (@main_args & %w(-h --help)).any?
+          return help if (@main_args & %w[-h --help]).any?
 
           command_class = @subcommands.get(@sub_command&.to_sym)
           return help unless command_class
@@ -33,8 +35,8 @@ module VagrantPlugins
         end
 
         def help
-          opts = OptionParser.new do |opts|
-            opts.banner = 'Usage: vagrant trellis-cert <command> [<args>]'
+          option_parser = OptionParser.new do |opts|
+            opts.banner = "Usage: vagrant trellis-cert <command> [<args>]"
             opts.separator ""
             opts.separator "Available subcommands:"
 
@@ -46,7 +48,7 @@ module VagrantPlugins
             opts.separator "For help on any individual command run 'vagrant trellis-cert COMMAND -h'"
           end
 
-          @env.ui.info(opts.help, prefix: false)
+          @env.ui.info(option_parser.help, prefix: false)
         end
       end
     end

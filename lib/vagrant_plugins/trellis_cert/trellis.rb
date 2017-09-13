@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require "vagrant"
 require "yaml"
 
@@ -14,7 +16,7 @@ module VagrantPlugins
         end
         fail_with(message: site_hosts_example) if malformed
 
-        site_hosts.map{ |host| host["canonical"] }
+        site_hosts.map { |host| host["canonical"] }
       end
 
       def site_hosts
