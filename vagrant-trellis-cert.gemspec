@@ -1,4 +1,3 @@
-# coding: utf-8
 # frozen_string_literal: true
 
 lib = File.expand_path("../lib", __FILE__)
@@ -14,7 +13,6 @@ Gem::Specification.new do |spec|
   spec.summary       = "Trust all Trellis self-signed certificates with single command"
   spec.homepage      = "https://www.typist.tech/projects/vagrant-trellis-cert"
   spec.license       = "MIT"
-
 
   spec.files         = `git ls-files -z`.split("\x0").reject do |f|
     f.match(%r{^(test|spec|features)/})
