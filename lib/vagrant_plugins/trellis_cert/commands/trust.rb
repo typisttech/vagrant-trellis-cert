@@ -53,6 +53,15 @@ module VagrantPlugins
           end
         end
 
+        def hosts(path:)
+          @hosts ||= Trellis.new(path: path).canonicals
+        end
+
+        def trust(host:, tmp_dir:)
+          system("openssl s_client -showcerts -connect #{host}:443 </dev/null 2>/dev/null | openssl x509 -outform PEM > #{tmp_dir}/#{host}.pem 2>/dev/null")
+          system("security add-trusted-cert -k ~/Library/Keychains/login.keychain #{tmp_dir}/#{host}.pem >/dev/null 2>/dev/null")
+        end
+
         def print_success_messages_for(successes:)
           successes&.each do |host|
             @env.ui.success("#{host} certificate imported successfully")
@@ -67,15 +76,6 @@ module VagrantPlugins
 
         def exit_code_for(results:)
           results.dig(false).nil? ? 0 : 1
-        end
-
-        def trust(host:, tmp_dir:)
-          system("openssl s_client -showcerts -connect #{host}:443 </dev/null 2>/dev/null | openssl x509 -outform PEM > #{tmp_dir}/#{host}.pem 2>/dev/null")
-          system("security add-trusted-cert -k ~/Library/Keychains/login.keychain #{tmp_dir}/#{host}.pem >/dev/null 2>/dev/null")
-        end
-
-        def hosts(path:)
-          @hosts ||= Trellis.new(path: path).canonicals
         end
       end
     end
