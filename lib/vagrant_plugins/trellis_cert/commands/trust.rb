@@ -10,6 +10,8 @@ module VagrantPlugins
     module Commands
       class Trust < Vagrant.plugin("2", :command)
         def execute
+          check_platform!
+
           options = {}
           parse_options(option_parser(options: options))
           path = options[:path] || "."
@@ -29,6 +31,11 @@ module VagrantPlugins
         end
 
         private
+
+        def check_platform!
+          return if Vagrant::Util::Platform.darwin?
+          fail Vagrant::Errors::CLIInvalidUsage.new(help: "vagrant-trellis-cert only works on macOS. Pull requests are welcome.")
+        end
 
         def option_parser(options:)
           OptionParser.new do |opts|
