@@ -4,7 +4,7 @@ module VagrantTrellisCert
   # Gem identity information.
   module Identity
     def self.name
-        "vagrant-trellis-cert"
+      "vagrant-trellis-cert"
     end
 
     def self.version
