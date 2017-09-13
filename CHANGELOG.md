@@ -1,10 +1,28 @@
 # Change Log
 
+## [v0.2.0](https://github.com/TypistTech/vagrant-trellis-cert/tree/v0.2.0) (2017-09-14)
+[Full Changelog](https://github.com/TypistTech/vagrant-trellis-cert/compare/v0.1.1...v0.2.0)
+
+**Closed issues:**
+
+- Early return with `--help` [\#8](https://github.com/TypistTech/vagrant-trellis-cert/issues/8)
+- Fail fast on windows [\#7](https://github.com/TypistTech/vagrant-trellis-cert/issues/7)
+
+**Merged pull requests:**
+
+- Make rubocop happy [\#17](https://github.com/TypistTech/vagrant-trellis-cert/pull/17) ([TangRufus](https://github.com/TangRufus))
+- Early quit if not on macOS [\#16](https://github.com/TypistTech/vagrant-trellis-cert/pull/16) ([TangRufus](https://github.com/TangRufus))
+- Extract `trust` subcommand and lots of refactor [\#15](https://github.com/TypistTech/vagrant-trellis-cert/pull/15) ([TangRufus](https://github.com/TangRufus))
+- Use rubygem naming convention [\#12](https://github.com/TypistTech/vagrant-trellis-cert/pull/12) ([TangRufus](https://github.com/TangRufus))
+- Add Hound config [\#11](https://github.com/TypistTech/vagrant-trellis-cert/pull/11) ([TangRufus](https://github.com/TangRufus))
+- Load vagrant source during development [\#9](https://github.com/TypistTech/vagrant-trellis-cert/pull/9) ([TangRufus](https://github.com/TangRufus))
+
 ## [v0.1.1](https://github.com/TypistTech/vagrant-trellis-cert/tree/v0.1.1) (2017-09-12)
 [Full Changelog](https://github.com/TypistTech/vagrant-trellis-cert/compare/v0.1.0...v0.1.1)
 
 **Merged pull requests:**
 
+- Version bump 0.1.1 [\#6](https://github.com/TypistTech/vagrant-trellis-cert/pull/6) ([TangRufus](https://github.com/TangRufus))
 - Fix: Uninitialized constant [\#5](https://github.com/TypistTech/vagrant-trellis-cert/pull/5) ([TangRufus](https://github.com/TangRufus))
 
 ## [v0.1.0](https://github.com/TypistTech/vagrant-trellis-cert/tree/v0.1.0) (2017-09-12)
