@@ -47,7 +47,7 @@ module VagrantTrellisCert
 
     def canonical_hosts
       site_hosts.map do |host|
-        if !host.is_a?(Hash) || !host.has_key?("canonical")
+        if !host.is_a?(Hash) || !host.key?("canonical")
           fail_with_message File.read(File.join(@path, "roles/common/templates/site_hosts.j2")).sub!("{{ env }}", "development").gsub!(/com$/, "dev")
         end
 
@@ -60,7 +60,7 @@ module VagrantTrellisCert
     end
 
     def sites
-      unless File.exists?(config_file)
+      unless File.exist?(config_file)
         fail_with_message "#{config_file} was not found. Please run `$ vagrant trellis-cert` with `--path` option"
       end
 
@@ -74,7 +74,7 @@ module VagrantTrellisCert
     end
 
     def fail_with_message(msg)
-      fail Vagrant::Errors::VagrantError.new, msg
+      raise Vagrant::Errors::VagrantError.new, msg
     end
 
     def tmp_path
