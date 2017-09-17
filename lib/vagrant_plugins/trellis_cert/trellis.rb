@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require 'vagrant'
 require 'yaml'
 
 module VagrantPlugins

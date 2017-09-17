@@ -1,7 +1,5 @@
 # frozen_string_literal: true
 
-require 'vagrant'
-
 module VagrantPlugins
   module TrellisCert
     class Plugin < Vagrant.plugin('2')

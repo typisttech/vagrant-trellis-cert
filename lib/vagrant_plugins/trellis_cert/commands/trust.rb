@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
 require 'fileutils'
-require 'optparse'
-require 'vagrant'
 require 'vagrant_plugins/trellis_cert/trellis'
 
 module VagrantPlugins
