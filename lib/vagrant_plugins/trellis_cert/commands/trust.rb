@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'fileutils'
-require 'vagrant_plugins/trellis_cert/trellis'
+require 'vagrant_plugins/trellis_cert/ssl_config'
 
 module VagrantPlugins
   module TrellisCert
@@ -52,7 +52,7 @@ module VagrantPlugins
         end
 
         def hosts(path:)
-          @hosts ||= Trellis.new(path: path).canonicals
+          @hosts ||= SSLConfig.new(root_path: path).canonicals
         end
 
         def trust(host:, tmp_dir:)
