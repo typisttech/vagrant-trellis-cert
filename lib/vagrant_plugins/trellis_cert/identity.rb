@@ -4,15 +4,15 @@ module VagrantPlugins
   module TrellisCert
     module Identity
       def self.name
-        "vagrant-trellis-cert"
+        'vagrant-trellis-cert'
       end
 
       def self.version
-        "0.2.0"
+        '0.2.0'
       end
 
       def self.description
-        "Trust all Trellis self-signed certificates with single command"
+        'Trust all Trellis self-signed certificates with single command'
       end
 
       def self.summary

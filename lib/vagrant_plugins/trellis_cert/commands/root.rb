@@ -1,14 +1,14 @@
 # frozen_string_literal: true
 
-require "optparse"
-require "vagrant"
+require 'optparse'
+require 'vagrant'
 
 module VagrantPlugins
   module TrellisCert
     module Commands
-      class Root < Vagrant.plugin("2", :command)
+      class Root < Vagrant.plugin('2', :command)
         def self.synopsis
-          "trust Trellis self-signed certificates"
+          'trust Trellis self-signed certificates'
         end
 
         def initialize(argv, env)
@@ -19,7 +19,7 @@ module VagrantPlugins
           @subcommands = Vagrant::Registry.new
 
           @subcommands.register(:trust) do
-            require_relative "trust"
+            require_relative 'trust'
             Trust
           end
         end
@@ -38,15 +38,15 @@ module VagrantPlugins
 
         def help
           option_parser = OptionParser.new do |opts|
-            opts.banner = "Usage: vagrant trellis-cert <command> [<args>]"
-            opts.separator ""
-            opts.separator "Available subcommands:"
+            opts.banner = 'Usage: vagrant trellis-cert <command> [<args>]'
+            opts.separator ''
+            opts.separator 'Available subcommands:'
 
             @subcommands.keys.sort.each do |key|
               opts.separator "     #{key}"
             end
 
-            opts.separator ""
+            opts.separator ''
             opts.separator "For help on any individual command run 'vagrant trellis-cert COMMAND -h'"
           end
 

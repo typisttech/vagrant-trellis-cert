@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require "vagrant"
-require "yaml"
+require 'vagrant'
+require 'yaml'
 
 module VagrantPlugins
   module TrellisCert
@@ -12,17 +12,17 @@ module VagrantPlugins
 
       def canonicals
         malformed = site_hosts.any? do |host|
-          !host.is_a?(Hash) || !host.key?("canonical")
+          !host.is_a?(Hash) || !host.key?('canonical')
         end
         fail_with(message: site_hosts_example) if malformed
 
-        site_hosts.map { |host| host["canonical"] }
+        site_hosts.map { |host| host['canonical'] }
       end
 
       private
 
       def site_hosts
-        wordpress_sites.flat_map { |(_name, site)| site["site_hosts"] }
+        wordpress_sites.flat_map { |(_name, site)| site['site_hosts'] }
       end
 
       def wordpress_sites
@@ -31,22 +31,22 @@ module VagrantPlugins
           fail_with(message: message)
         end
 
-        YAML.load_file(config_file)["wordpress_sites"].tap do |sites|
+        YAML.load_file(config_file)['wordpress_sites'].tap do |sites|
           fail_with(message: "No sites found in #{config_file}.") if sites.to_h.empty?
         end
       end
 
       def config_file
-        File.join(@path, "group_vars", "development", "wordpress_sites.yml")
+        File.join(@path, 'group_vars', 'development', 'wordpress_sites.yml')
       end
 
       def site_hosts_example
-        template = File.join(@path, "roles/common/templates/site_hosts.j2")
-        File.read(template).sub!("{{ env }}", "development").gsub!(/com$/, "dev")
+        template = File.join(@path, 'roles/common/templates/site_hosts.j2')
+        File.read(template).sub!('{{ env }}', 'development').gsub!(/com$/, 'dev')
       end
 
       def fail_with(message:)
-        fail Vagrant::Errors::VagrantError.new, message
+        raise Vagrant::Errors::VagrantError.new, message
       end
     end
   end

@@ -1,11 +1,18 @@
-inherit_from:
-  - .rubocop.rails.yml
-
 AllCops:
   TargetRubyVersion: 2.3
 
-Layout/IndentationConsistency:
-  EnforcedStyle: normal
+Naming/FileName:
+  Exclude:
+    - 'lib/vagrant-trellis-cert.rb'
+
+Metrics/AbcSize:
+  Max: 18
 
 Metrics/LineLength:
   Max: 156
+
+Metrics/MethodLength:
+  Max: 14
+
+Style/Documentation:
+  Enabled: false

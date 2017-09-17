@@ -1,20 +1,20 @@
 # frozen_string_literal: true
 
-require "fileutils"
-require "optparse"
-require "vagrant"
-require "vagrant_plugins/trellis_cert/trellis"
+require 'fileutils'
+require 'optparse'
+require 'vagrant'
+require 'vagrant_plugins/trellis_cert/trellis'
 
 module VagrantPlugins
   module TrellisCert
     module Commands
-      class Trust < Vagrant.plugin("2", :command)
+      class Trust < Vagrant.plugin('2', :command)
         def execute
           check_platform!
 
           options = {}
           parse_options(option_parser(options: options))
-          path = options[:path] || "."
+          path = options[:path] || '.'
 
           tmp_dir = File.join(@env.tmp_path, Identity.name)
           FileUtils.mkdir_p(tmp_dir)
@@ -34,19 +34,19 @@ module VagrantPlugins
 
         def check_platform!
           return if Vagrant::Util::Platform.darwin?
-          fail Vagrant::Errors::CLIInvalidUsage.new(help: "vagrant-trellis-cert only works on macOS. Pull requests are welcome.")
+          raise Vagrant::Errors::CLIInvalidUsage.new(help: 'vagrant-trellis-cert only works on macOS. Pull requests are welcome.')
         end
 
         def option_parser(options:)
           OptionParser.new do |opts|
-            opts.banner = "Usage: vagrant trellis-cert trust [options]"
-            opts.separator ""
+            opts.banner = 'Usage: vagrant trellis-cert trust [options]'
+            opts.separator ''
 
-            opts.on("-p", "--path PATH", String, "Path to the Trellis root") do |path|
+            opts.on('-p', '--path PATH', String, 'Path to the Trellis root') do |path|
               options[:path] = path
             end
 
-            opts.on("-h", "--help", "Print this help") do
+            opts.on('-h', '--help', 'Print this help') do
               @env.ui.info(opts)
               exit
             end
