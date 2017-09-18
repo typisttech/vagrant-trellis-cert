@@ -2,38 +2,31 @@
 
 require 'fileutils'
 require 'vagrant_plugins/trellis_cert/ssl_config'
+require 'vagrant_plugins/trellis_cert/system'
 
 module VagrantPlugins
   module TrellisCert
     module Commands
       class Trust < Vagrant.plugin('2', :command)
         def execute
-          check_platform!
-
           options = {}
           parse_options(option_parser(options: options))
           path = options[:path] || '.'
 
-          tmp_dir = File.join(@env.tmp_path, Identity.name)
-          FileUtils.mkdir_p(tmp_dir)
-          begin
-            results = hosts(path: path).group_by { |host| trust(host: host, tmp_dir: tmp_dir) }
+          Dir.mktmpdir do |tmp_dir|
+            results = System.build(
+              hosts: SSLConfig.new(root_path: path).canonicals,
+              tmp_dir: tmp_dir
+            ).trust
 
             print_success_messages_for(successes: results.dig(true))
             print_error_messages_for(failures: results.dig(false))
-          ensure
-            FileUtils.rm_rf(tmp_dir)
           end
 
           exit_code_for(results: results)
         end
 
         private
-
-        def check_platform!
-          return if Vagrant::Util::Platform.darwin?
-          raise Vagrant::Errors::CLIInvalidUsage.new(help: 'vagrant-trellis-cert only works on macOS. Pull requests are welcome.')
-        end
 
         def option_parser(options:)
           OptionParser.new do |opts|
@@ -49,15 +42,6 @@ module VagrantPlugins
               exit
             end
           end
-        end
-
-        def hosts(path:)
-          @hosts ||= SSLConfig.new(root_path: path).canonicals
-        end
-
-        def trust(host:, tmp_dir:)
-          system("openssl s_client -showcerts -connect #{host}:443 </dev/null 2>/dev/null | openssl x509 -outform PEM > #{tmp_dir}/#{host}.pem 2>/dev/null")
-          system("security add-trusted-cert -k ~/Library/Keychains/login.keychain #{tmp_dir}/#{host}.pem >/dev/null 2>/dev/null")
         end
 
         def print_success_messages_for(successes:)

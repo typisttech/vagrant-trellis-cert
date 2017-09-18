@@ -5,14 +5,11 @@ Naming/FileName:
   Exclude:
     - 'lib/vagrant-trellis-cert.rb'
 
-Metrics/AbcSize:
-  Max: 18
-
 Metrics/LineLength:
-  Max: 156
+  Max: 160
 
 Metrics/MethodLength:
-  Max: 14
+  Max: 12
 
 Style/Documentation:
   Enabled: false
