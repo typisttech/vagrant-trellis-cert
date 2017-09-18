@@ -10,23 +10,13 @@ module VagrantPlugins
         def execute
           _options, argv = parse_options!
 
-          # To get result variable after mktmpdir block
-          result = nil
+          @env.ui.info('Importing certificates...')
 
-          with_target_vms(argv) do |machine|
-            raise Vagrant::Errors::SSHNotReady unless machine.communicate.ready?
+          hosts = SSLConfig.new(root_path: machine_root_path(argv))
+                           .canonicals
+          result = trust(hosts)
 
-            machine.env.ui.info('Importing certificates...')
-
-            hosts = SSLConfig.new(root_path: machine.env.root_path).canonicals
-
-            Dir.mktmpdir do |tmp_dir|
-              result = System.build
-                             .trust(hosts: hosts, tmp_dir: tmp_dir)
-            end
-
-            result.print(ui: machine.env.ui)
-          end
+          result.print(ui: @env.ui)
 
           result.exit_code
         end
@@ -45,6 +35,22 @@ module VagrantPlugins
             end
           end
           [options, parse_options(opts)]
+        end
+
+        def machine_root_path(argv)
+          with_target_vms(argv) do |machine|
+            # Machine must be up so that we can download SSL certificates.
+            raise Vagrant::Errors::SSHNotReady unless machine.communicate.ready?
+
+            return machine.env.root_path
+          end
+        end
+
+        def trust(hosts)
+          Dir.mktmpdir do |tmp_dir|
+            return System.build
+                         .trust(hosts: hosts, tmp_dir: tmp_dir)
+          end
         end
       end
     end
