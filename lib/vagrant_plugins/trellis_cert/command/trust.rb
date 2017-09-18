@@ -13,17 +13,21 @@ module VagrantPlugins
           parse_options(option_parser(options: options))
           path = options[:path] || '.'
 
+          # To get result variable after mktmpdir block
+          result = nil
+
+          @env.ui.info('Importing certificates...')
+
           Dir.mktmpdir do |tmp_dir|
-            results = System.build(
+            result = System.build(
               hosts: SSLConfig.new(root_path: path).canonicals,
               tmp_dir: tmp_dir
             ).trust
 
-            print_success_messages_for(successes: results.dig(true))
-            print_error_messages_for(failures: results.dig(false))
+            result.print(ui: @env.ui)
           end
 
-          exit_code_for(results: results)
+          result.exit_code
         end
 
         private
@@ -42,22 +46,6 @@ module VagrantPlugins
               exit
             end
           end
-        end
-
-        def print_success_messages_for(successes:)
-          successes&.each do |host|
-            @env.ui.success("#{host} certificate imported successfully")
-          end
-        end
-
-        def print_error_messages_for(failures:)
-          failures&.each do |host|
-            @env.ui.error("#{host} certificate import failed")
-          end
-        end
-
-        def exit_code_for(results:)
-          results.dig(false).nil? ? 0 : 1
         end
       end
     end

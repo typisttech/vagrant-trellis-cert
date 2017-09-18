@@ -6,10 +6,10 @@ Naming/FileName:
     - 'lib/vagrant-trellis-cert.rb'
 
 Metrics/LineLength:
-  Max: 160
+  Max: 143
 
 Metrics/MethodLength:
-  Max: 12
+  Max: 13
 
 Style/Documentation:
   Enabled: false
