@@ -7,7 +7,7 @@
 [![Donate via PayPal](https://img.shields.io/badge/Donate-PayPal-blue.svg)](https://www.typist.tech/donate/vagrant-trellis-cert/)
 [![Hire Typist Tech](https://img.shields.io/badge/Hire-Typist%20Tech-ff69b4.svg)](https://www.typist.tech/contact/)
 
-Trust Trellis self-signed certificates with single command
+Trust Trellis self-signed certificates with a single command
 
 <!-- START doctoc generated TOC please keep comment here to allow auto update -->
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
@@ -38,18 +38,20 @@ $ vagrant plugin install vagrant-trellis-cert
 ## Usage
 
 ```bash
-# Trust Trellis certificates on a Trellis vagrant VM
-#
-# Usage: vagrant trellis-cert trust [options]
-#
-#    -p, --path PATH                  Path to the Trellis root
-#    -h, --help                       Print this help
+Usage: vagrant trellis-cert trust [options] [vm-id]
 
-# Example: Running at Trellis root (same level with ansible.cfg)
+    -h, --help                       Print this help
+
+# Example: Running within Trellis directory
 $ vagrant trellis-cert trust
 
-# Example: Specify Trellis root
-$ vagrant trellis-cert trust --path /path/to/trellis
+# Example: Specify VM id
+$ vagrant global-status
+id       name    provider   state    directory
+-----------------------------------------------------------------------------------
+fb90ab5  default virtualbox running  /Users/me/Code/trellis
+
+$ vagrant trellis-cert trust fb90ab5
 ```
 
 ## Going super lazy

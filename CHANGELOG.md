@@ -1,6 +1,28 @@
 # Change Log
 
-## [v0.2.0](https://github.com/TypistTech/vagrant-trellis-cert/tree/v0.2.0) (2017-09-14)
+## [v0.3.0](https://github.com/TypistTech/vagrant-trellis-cert/tree/v0.3.0) (2017-09-18)
+[Full Changelog](https://github.com/TypistTech/vagrant-trellis-cert/compare/v0.2.0...v0.3.0)
+
+**Implemented enhancements:**
+
+- Filter out unnecessary hosts [\#22](https://github.com/TypistTech/vagrant-trellis-cert/issues/22)
+- Fail if loaded without vagrant [\#19](https://github.com/TypistTech/vagrant-trellis-cert/issues/19)
+
+**Merged pull requests:**
+
+- Determine current VM via `vm-id` as a vagrant plugin should [\#35](https://github.com/TypistTech/vagrant-trellis-cert/pull/35) ([TangRufus](https://github.com/TangRufus))
+- Extract class `Result` [\#34](https://github.com/TypistTech/vagrant-trellis-cert/pull/34) ([TangRufus](https://github.com/TangRufus))
+- Rename module Commands --\> Command [\#33](https://github.com/TypistTech/vagrant-trellis-cert/pull/33) ([TangRufus](https://github.com/TangRufus))
+- Re-raise error with original backtrace [\#32](https://github.com/TypistTech/vagrant-trellis-cert/pull/32) ([TangRufus](https://github.com/TangRufus))
+- Extract System::Darwin and download certs into temporary directory [\#31](https://github.com/TypistTech/vagrant-trellis-cert/pull/31) ([TangRufus](https://github.com/TangRufus))
+- Update Rubocop to ~\> ~\> 0.50.0 [\#30](https://github.com/TypistTech/vagrant-trellis-cert/pull/30) ([TangRufus](https://github.com/TangRufus))
+- Filter out non-ssl hosts and fork Trellis::Config [\#29](https://github.com/TypistTech/vagrant-trellis-cert/pull/29) ([TangRufus](https://github.com/TangRufus))
+- Re-raise `StandardError` as `Vagrant::Errors::CLIInvalidUsage` [\#28](https://github.com/TypistTech/vagrant-trellis-cert/pull/28) ([TangRufus](https://github.com/TangRufus))
+- Check vagrant requirement and assume loading this plugin normally [\#27](https://github.com/TypistTech/vagrant-trellis-cert/pull/27) ([TangRufus](https://github.com/TangRufus))
+- Use Rubocop's default style and Git: Ignore /.gems/ [\#26](https://github.com/TypistTech/vagrant-trellis-cert/pull/26) ([TangRufus](https://github.com/TangRufus))
+- Require ruby version `~\> 2.3` [\#24](https://github.com/TypistTech/vagrant-trellis-cert/pull/24) ([TangRufus](https://github.com/TangRufus))
+
+## [v0.2.0](https://github.com/TypistTech/vagrant-trellis-cert/tree/v0.2.0) (2017-09-13)
 [Full Changelog](https://github.com/TypistTech/vagrant-trellis-cert/compare/v0.1.1...v0.2.0)
 
 **Closed issues:**
@@ -10,6 +32,7 @@
 
 **Merged pull requests:**
 
+- Version bump 0.2.0 [\#18](https://github.com/TypistTech/vagrant-trellis-cert/pull/18) ([TangRufus](https://github.com/TangRufus))
 - Make rubocop happy [\#17](https://github.com/TypistTech/vagrant-trellis-cert/pull/17) ([TangRufus](https://github.com/TangRufus))
 - Early quit if not on macOS [\#16](https://github.com/TypistTech/vagrant-trellis-cert/pull/16) ([TangRufus](https://github.com/TangRufus))
 - Extract `trust` subcommand and lots of refactor [\#15](https://github.com/TypistTech/vagrant-trellis-cert/pull/15) ([TangRufus](https://github.com/TangRufus))
