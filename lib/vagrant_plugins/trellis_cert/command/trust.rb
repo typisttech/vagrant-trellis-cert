@@ -6,7 +6,7 @@ require 'vagrant_plugins/trellis_cert/system'
 
 module VagrantPlugins
   module TrellisCert
-    module Commands
+    module Command
       class Trust < Vagrant.plugin('2', :command)
         def execute
           options = {}
