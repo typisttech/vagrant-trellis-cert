@@ -18,11 +18,11 @@ module VagrantPlugins
 
             machine.env.ui.info('Importing certificates...')
 
+            hosts = SSLConfig.new(root_path: machine.env.root_path).canonicals
+
             Dir.mktmpdir do |tmp_dir|
-              result = System.build(
-                hosts: SSLConfig.new(root_path: machine.env.root_path).canonicals,
-                tmp_dir: tmp_dir
-              ).trust
+              result = System.build
+                             .trust(hosts: hosts, tmp_dir: tmp_dir)
             end
 
             result.print(ui: machine.env.ui)

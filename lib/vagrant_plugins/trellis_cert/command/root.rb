@@ -21,6 +21,11 @@ module VagrantPlugins
             require_relative 'trust'
             Trust
           end
+
+          @subcommands.register(:distrust) do
+            require_relative 'distrust'
+            Distrust
+          end
         end
 
         def execute
