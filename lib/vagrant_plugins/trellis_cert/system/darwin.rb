@@ -1,18 +1,31 @@
 # frozen_string_literal: true
 
+require 'vagrant_plugins/trellis_cert/result'
+
 module VagrantPlugins
   module TrellisCert
     module System
       class Darwin
+        KEYCHAIN = '~/Library/Keychains/login.keychain'
+
         def initialize(hosts:, tmp_dir:)
           @hosts = hosts
           @tmp_dir = tmp_dir
         end
 
         def trust
-          @hosts.group_by do |host|
-            system("openssl s_client -showcerts -connect #{host}:443 </dev/null 2>/dev/null | openssl x509 -outform PEM > #{@tmp_dir}/#{host}.pem 2>/dev/null")
-            system("security add-trusted-cert -k ~/Library/Keychains/login.keychain #{@tmp_dir}/#{host}.pem >/dev/null 2>/dev/null")
+          Result.new.tap do |result|
+            @hosts.map do |host|
+              cert_path = "#{@tmp_dir}/#{host}.pem"
+
+              # Download certs
+              system("openssl s_client -showcerts -connect #{host}:443 </dev/null 2>/dev/null | \
+              openssl x509 -outform PEM > #{cert_path} 2>/dev/null")
+
+              is_success = system("security add-trusted-cert -k #{KEYCHAIN} #{cert_path} >/dev/null 2>/dev/null")
+
+              result.add(host: host, is_success: is_success)
+            end
           end
         end
       end
