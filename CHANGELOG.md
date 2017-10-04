@@ -1,5 +1,16 @@
 # Change Log
 
+## [v0.4.0](https://github.com/TypistTech/vagrant-trellis-cert/tree/v0.4.0) (2017-10-05)
+[Full Changelog](https://github.com/TypistTech/vagrant-trellis-cert/compare/v0.3.0...v0.4.0)
+
+**Implemented enhancements:**
+
+- Add `distrust` subcommand [\#21](https://github.com/TypistTech/vagrant-trellis-cert/issues/21)
+
+**Merged pull requests:**
+
+- Add `distrust` subcommand [\#37](https://github.com/TypistTech/vagrant-trellis-cert/pull/37) ([TangRufus](https://github.com/TangRufus))
+
 ## [v0.3.0](https://github.com/TypistTech/vagrant-trellis-cert/tree/v0.3.0) (2017-09-18)
 [Full Changelog](https://github.com/TypistTech/vagrant-trellis-cert/compare/v0.2.0...v0.3.0)
 
@@ -10,6 +21,7 @@
 
 **Merged pull requests:**
 
+- Version bump 0.3.0 [\#36](https://github.com/TypistTech/vagrant-trellis-cert/pull/36) ([TangRufus](https://github.com/TangRufus))
 - Determine current VM via `vm-id` as a vagrant plugin should [\#35](https://github.com/TypistTech/vagrant-trellis-cert/pull/35) ([TangRufus](https://github.com/TangRufus))
 - Extract class `Result` [\#34](https://github.com/TypistTech/vagrant-trellis-cert/pull/34) ([TangRufus](https://github.com/TangRufus))
 - Rename module Commands --\> Command [\#33](https://github.com/TypistTech/vagrant-trellis-cert/pull/33) ([TangRufus](https://github.com/TangRufus))
