@@ -39,11 +39,13 @@ $ vagrant plugin install vagrant-trellis-cert
 
 ```bash
 Usage: vagrant trellis-cert trust [options] [vm-id]
+Usage: vagrant trellis-cert distrust [options] [vm-id]
 
     -h, --help                       Print this help
 
 # Example: Running within Trellis directory
 $ vagrant trellis-cert trust
+$ vagrant trellis-cert distrust
 
 # Example: Specify VM id
 $ vagrant global-status
@@ -52,6 +54,7 @@ id       name    provider   state    directory
 fb90ab5  default virtualbox running  /Users/me/Code/trellis
 
 $ vagrant trellis-cert trust fb90ab5
+$ vagrant trellis-cert distrust fb90ab5
 ```
 
 ## Going super lazy
@@ -68,6 +71,10 @@ Vagrant.configure('2') do |config|
 
   config.trigger.after :provision, :stdout => true do
     run "vagrant trellis-cert trust"
+  end
+
+  config.trigger.after :destroy, :stdout => true do
+    run "vagrant trellis-cert distrust"
   end
 end
 ```

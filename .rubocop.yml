@@ -9,7 +9,7 @@ Metrics/LineLength:
   Max: 143
 
 Metrics/MethodLength:
-  Max: 13
+  Max: 11
 
 Style/Documentation:
   Enabled: false

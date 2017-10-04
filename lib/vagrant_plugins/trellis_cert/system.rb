@@ -5,12 +5,12 @@ require 'vagrant_plugins/trellis_cert/system/darwin'
 module VagrantPlugins
   module TrellisCert
     module System
-      def self.build(args)
+      def self.build
         unless Vagrant::Util::Platform.darwin?
           raise 'vagrant-trellis-cert only works on macOS. Pull requests are welcome.'
         end
 
-        Darwin.new(**args)
+        Darwin.new
       end
     end
   end
