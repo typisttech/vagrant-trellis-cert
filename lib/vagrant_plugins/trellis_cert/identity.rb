@@ -8,7 +8,7 @@ module VagrantPlugins
       end
 
       def self.version
-        '0.3.0'
+        '0.4.0'
       end
 
       def self.description
