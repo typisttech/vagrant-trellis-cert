@@ -59,6 +59,8 @@ $ vagrant trellis-cert distrust fb90ab5
 
 ## Going super lazy
 
+**Proceed with Caution:** [vagrant-triggers](https://github.com/emyl/vagrant-triggers) hasn't been updated for a while and has some conflicts with recent vagrant core and plugins. Keep an eye on [emyl/vagrant-triggers#86](https://github.com/emyl/vagrant-triggers/issues/86). Advanced users could use vagrant(not WordPress) [action hooks](https://www.vagrantup.com/docs/plugins/action-hooks.html) instead.
+
 If the [vagrant-triggers](https://github.com/emyl/vagrant-triggers) plugin is installed, we can run the command on Vagrant state changes like `vagrant provision`. Add these lines into Trellis' `Vagrantfile`:
 
 ```ruby
