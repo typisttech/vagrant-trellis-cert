@@ -2,7 +2,6 @@
 
 [![Gem](https://img.shields.io/gem/v/vagrant-trellis-cert.svg)](https://rubygems.org/gems/vagrant-trellis-cert)
 [![Gem](https://img.shields.io/gem/dt/vagrant-trellis-cert.svg)](https://rubygems.org/gems/vagrant-trellis-cert)
-[![Dependency Status](https://gemnasium.com/badges/github.com/TypistTech/vagrant-trellis-cert.svg)](https://gemnasium.com/github.com/TypistTech/vagrant-trellis-cert)
 [![license](https://img.shields.io/github/license/TypistTech/vagrant-trellis-cert.svg)](https://github.com/TypistTech/vagrant-trellis-cert/blob/master/LICENSE)
 [![Donate via PayPal](https://img.shields.io/badge/Donate-PayPal-blue.svg)](https://www.typist.tech/donate/vagrant-trellis-cert/)
 [![Hire Typist Tech](https://img.shields.io/badge/Hire-Typist%20Tech-ff69b4.svg)](https://www.typist.tech/contact/)
@@ -13,12 +12,12 @@ Trust Trellis self-signed certificates with a single command
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
 
+- [Minimum Requirements](#minimum-requirements)
 - [Installation](#installation)
 - [Usage](#usage)
-- [Going super lazy](#going-super-lazy)
-- [Limitations](#limitations)
+- [It looks awesome. Where can I find some more goodies like this?](#it-looks-awesome-where-can-i-find-some-more-goodies-like-this)
 - [Support!](#support)
-  - [Donate via PayPal *](#donate-via-paypal-)
+  - [Donate](#donate)
   - [Why don't you hire me?](#why-dont-you-hire-me)
   - [Want to help in other way? Want to be a sponsor?](#want-to-help-in-other-way-want-to-be-a-sponsor)
 - [Feedback](#feedback)
@@ -62,15 +61,24 @@ $ vagrant trellis-cert trust fb90ab5
 $ vagrant trellis-cert distrust fb90ab5
 ```
 
+## It looks awesome. Where can I find some more goodies like this?
+
+* Articles on Typist Tech's [blog](https://typist.tech)
+* [Tang Rufus' WordPress plugins](https://profiles.wordpress.org/tangrufus#content-plugins) on wp.org
+* More projects on [Typist Tech's GitHub profile](https://github.com/TypistTech)
+* Stay tuned on [Typist Tech's newsletter](https://typist.tech/go/newsletter)
+* Follow [Tang Rufus' Twitter account](https://twitter.com/TangRufus)
+* Hire [Tang Rufus](https://typist.tech/contact) to build your next awesome site
+
 ## Support!
 
-### Donate via PayPal [![Donate via PayPal](https://img.shields.io/badge/Donate-PayPal-blue.svg)](https://www.typist.tech/donate/vagrant-trellis-cert/)
+### Donate
 
-Love Vagrant Trellis Cert? Help me maintain it, a [donation here](https://www.typist.tech/donate/vagrant-trellis-cert/) can help with it.
+Love Vagrant Trellis Cert? Help me maintain it, a [donation here](https://typist.tech/donation/) can help with it.
 
 ### Why don't you hire me?
 
-Ready to take freelance WordPress jobs. Contact me via the contact form [here](https://www.typist.tech/contact/) or, via email [info@typist.tech](mailto:info@typist.tech)
+Ready to take freelance WordPress jobs. Contact me via the contact form [here](https://typist.tech/contact/) or, via email [info@typist.tech](mailto:info@typist.tech)
 
 ### Want to help in other way? Want to be a sponsor?
 
