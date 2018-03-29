@@ -8,9 +8,9 @@ end
 
 # This is a sanity check to make sure no one is attempting to install
 # this into an early Vagrant version.
-# Requiring 1.9.6 or later because of Ruby 2.3
-if Vagrant::VERSION < '1.9.6'
-  raise 'The Vagrant Trellis Cert plugin is only compatible with Vagrant 1.9.6 or later'
+# Requiring 2.0.3 or later because of Ruby 2.4.2
+if Vagrant::VERSION < '2.0.3'
+  raise 'The Vagrant Trellis Cert plugin is only compatible with Vagrant 2.0.3 or later'
 end
 
 require 'vagrant_plugins/trellis_cert/identity'
