@@ -1,6 +1,22 @@
 # Change Log
 
-## [v0.4.0](https://github.com/TypistTech/vagrant-trellis-cert/tree/v0.4.0) (2017-10-05)
+## [v0.5.0](https://github.com/TypistTech/vagrant-trellis-cert/tree/v0.5.0) (2018-03-29)
+[Full Changelog](https://github.com/TypistTech/vagrant-trellis-cert/compare/v0.4.0...v0.5.0)
+
+**Implemented enhancements:**
+
+- Download cert via ruby's openssl gem [\#41](https://github.com/TypistTech/vagrant-trellis-cert/issues/41)
+
+**Closed issues:**
+
+- No certificate is added to keychain [\#44](https://github.com/TypistTech/vagrant-trellis-cert/issues/44)
+
+**Merged pull requests:**
+
+- Download certificate via Ruby's default openssl wrapper [\#45](https://github.com/TypistTech/vagrant-trellis-cert/pull/45) ([TangRufus](https://github.com/TangRufus))
+- Readme: Warn about `vagrant-triggers` stale development [\#43](https://github.com/TypistTech/vagrant-trellis-cert/pull/43) ([TangRufus](https://github.com/TangRufus))
+
+## [v0.4.0](https://github.com/TypistTech/vagrant-trellis-cert/tree/v0.4.0) (2017-10-04)
 [Full Changelog](https://github.com/TypistTech/vagrant-trellis-cert/compare/v0.3.0...v0.4.0)
 
 **Implemented enhancements:**
@@ -9,6 +25,7 @@
 
 **Merged pull requests:**
 
+- Version bump 0.4.0 [\#39](https://github.com/TypistTech/vagrant-trellis-cert/pull/39) ([TangRufus](https://github.com/TangRufus))
 - Add `distrust` subcommand [\#37](https://github.com/TypistTech/vagrant-trellis-cert/pull/37) ([TangRufus](https://github.com/TangRufus))
 
 ## [v0.3.0](https://github.com/TypistTech/vagrant-trellis-cert/tree/v0.3.0) (2017-09-18)
