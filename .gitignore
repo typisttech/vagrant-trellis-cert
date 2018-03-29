@@ -11,5 +11,5 @@
 .rbenv-gemsets
 .ruby-version
 /.gems/
-
+/vagrant-trellis-cert-*.gem
 .rubocop-http*

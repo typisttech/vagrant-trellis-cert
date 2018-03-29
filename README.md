@@ -29,6 +29,11 @@ Trust Trellis self-signed certificates with a single command
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
+## Minimum Requirements
+
+- macOS 10.13.3
+- Vagrant 2.0.3
+
 ## Installation
 
 ```bash
@@ -56,36 +61,6 @@ fb90ab5  default virtualbox running  /Users/me/Code/trellis
 $ vagrant trellis-cert trust fb90ab5
 $ vagrant trellis-cert distrust fb90ab5
 ```
-
-## Going super lazy
-
-**Proceed with Caution:** [vagrant-triggers](https://github.com/emyl/vagrant-triggers) hasn't been updated for a while and has some conflicts with recent vagrant core and plugins. Keep an eye on [emyl/vagrant-triggers#86](https://github.com/emyl/vagrant-triggers/issues/86). Advanced users could use vagrant(not WordPress) [action hooks](https://www.vagrantup.com/docs/plugins/action-hooks.html) instead.
-
-If the [vagrant-triggers](https://github.com/emyl/vagrant-triggers) plugin is installed, we can run the command on Vagrant state changes like `vagrant provision`. Add these lines into Trellis' `Vagrantfile`:
-
-```ruby
-# Vagrantfile
-
-# Some lines of code...
-
-Vagrant.configure('2') do |config|
-  # Some more lines of code later...
-
-  config.trigger.after :provision, :stdout => true do
-    run "vagrant trellis-cert trust"
-  end
-
-  config.trigger.after :destroy, :stdout => true do
-    run "vagrant trellis-cert distrust"
-  end
-end
-```
-
-## Limitations
-
-Pull requests are welcome!
-
-- Only works on macOS
 
 ## Support!
 

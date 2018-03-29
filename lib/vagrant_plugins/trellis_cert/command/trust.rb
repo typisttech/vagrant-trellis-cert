@@ -1,20 +1,23 @@
 # frozen_string_literal: true
 
+require 'vagrant_plugins/trellis_cert/certificate'
 require 'vagrant_plugins/trellis_cert/ssl_config'
-require 'vagrant_plugins/trellis_cert/system'
+require 'vagrant_plugins/trellis_cert/result'
 
 module VagrantPlugins
   module TrellisCert
     module Command
       class Trust < Vagrant.plugin('2', :command)
+        KEYCHAIN = '~/Library/Keychains/login.keychain'
+
         def execute
           _options, argv = parse_options!
 
           @env.ui.info('Importing certificates...')
 
-          hosts = SSLConfig.new(root_path: machine_root_path(argv))
-                           .canonicals
-          result = trust(hosts)
+          ssl_config = SSLConfig.new(root_path: machine_root_path(argv))
+
+          result = trust(ssl_config.canonicals)
 
           result.print(ui: @env.ui)
 
@@ -47,10 +50,20 @@ module VagrantPlugins
         end
 
         def trust(hosts)
+          result = Result.new
+
           Dir.mktmpdir do |tmp_dir|
-            return System.build
-                         .trust(hosts: hosts, tmp_dir: tmp_dir)
+            hosts.map do |host|
+              certificate = Certificate.new(host: host, tmp_dir: tmp_dir)
+              certificate.download
+
+              is_success = system("security add-trusted-cert -k #{KEYCHAIN} #{certificate.path} >/dev/null 2>/dev/null")
+
+              result.add(host: host, is_success: is_success)
+            end
           end
+
+          result
         end
       end
     end
