@@ -1,5 +1,12 @@
 # Change Log
 
+## [v0.5.1](https://github.com/TypistTech/vagrant-trellis-cert/tree/v0.5.1) (2018-05-23)
+[Full Changelog](https://github.com/TypistTech/vagrant-trellis-cert/compare/v0.5.0...v0.5.1)
+
+**Merged pull requests:**
+
+- Add nil checks [\#48](https://github.com/TypistTech/vagrant-trellis-cert/pull/48) ([TangRufus](https://github.com/TangRufus))
+
 ## [v0.5.0](https://github.com/TypistTech/vagrant-trellis-cert/tree/v0.5.0) (2018-03-29)
 [Full Changelog](https://github.com/TypistTech/vagrant-trellis-cert/compare/v0.4.0...v0.5.0)
 
@@ -13,6 +20,7 @@
 
 **Merged pull requests:**
 
+- Version bump 0.5.0 [\#46](https://github.com/TypistTech/vagrant-trellis-cert/pull/46) ([TangRufus](https://github.com/TangRufus))
 - Download certificate via Ruby's default openssl wrapper [\#45](https://github.com/TypistTech/vagrant-trellis-cert/pull/45) ([TangRufus](https://github.com/TangRufus))
 - Readme: Warn about `vagrant-triggers` stale development [\#43](https://github.com/TypistTech/vagrant-trellis-cert/pull/43) ([TangRufus](https://github.com/TangRufus))
 
