@@ -9,9 +9,14 @@ Gem::Specification.new do |spec|
   spec.version       = VagrantPlugins::TrellisCert::Identity.version
   spec.authors       = ['Tang Rufus', 'Typist Tech']
   spec.email         = ['tangrufus@gmail.com', 'vagrant-trellis-cert@typist.tech']
-
+  spec.metadata      = {
+    'homepage_uri': 'https://typist.tech/projects/vagrant-trellis-cert',
+    'changelog_uri': 'https://github.com/TypistTech/vagrant-trellis-cert/blob/master/CHANGELOG.md',
+    'source_code_uri': 'https://github.com/TypistTech/vagrant-trellis-cert',
+    'bug_tracker_uri': 'https://github.com/TypistTech/vagrant-trellis-cert/issues',
+  }
   spec.summary       = VagrantPlugins::TrellisCert::Identity.summary
-  spec.homepage      = 'https://www.typist.tech/projects/vagrant-trellis-cert'
+  spec.homepage      = 'https://typist.tech/projects/vagrant-trellis-cert'
   spec.license       = 'MIT'
 
   spec.required_ruby_version = '~> 2.4.2'
