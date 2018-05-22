@@ -32,8 +32,8 @@ module VagrantPlugins
         ssl_client.connect
         @cert = OpenSSL::X509::Certificate.new(ssl_client.peer_cert)
       ensure
-        ssl_client.sysclose
-        tcp_client.close
+        ssl_client&.sysclose
+        tcp_client&.close
       end
     end
   end
