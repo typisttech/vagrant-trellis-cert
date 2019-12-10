@@ -12,19 +12,22 @@ Trust Trellis self-signed certificates with a single command
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
 
-- [Minimum Requirements](#minimum-requirements)
-- [Installation](#installation)
-- [Usage](#usage)
-- [It looks awesome. Where can I find some more goodies like this?](#it-looks-awesome-where-can-i-find-some-more-goodies-like-this)
-- [Support!](#support)
-  - [Donate](#donate)
-  - [Why don't you hire me?](#why-dont-you-hire-me)
-  - [Want to help in other way? Want to be a sponsor?](#want-to-help-in-other-way-want-to-be-a-sponsor)
-- [Feedback](#feedback)
-- [Change log](#change-log)
-- [Author Information](#author-information)
-- [Contributing](#contributing)
-- [License](#license)
+- [Vagrant Trellis Cert](#vagrant-trellis-cert)
+  - [Minimum Requirements](#minimum-requirements)
+  - [Installation](#installation)
+  - [Usage](#usage)
+  - [It looks awesome. Where can I find some more goodies like this?](#it-looks-awesome-where-can-i-find-some-more-goodies-like-this)
+  - [Support!](#support)
+    - [Donate](#donate)
+    - [Why don't you hire me?](#why-dont-you-hire-me)
+    - [Want to help in other way? Want to be a sponsor?](#want-to-help-in-other-way-want-to-be-a-sponsor)
+  - [Troubleshooting](#troubleshooting)
+    - [getaddrinfo: nodename nor servname provided, or not known](#getaddrinfo-nodename-nor-servname-provided-or-not-known)
+  - [Feedback](#feedback)
+  - [Change log](#change-log)
+  - [Author Information](#author-information)
+  - [Contributing](#contributing)
+  - [License](#license)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
@@ -83,6 +86,16 @@ Ready to take freelance WordPress jobs. Contact me via the contact form [here](h
 ### Want to help in other way? Want to be a sponsor?
 
 Contact: [Tang Rufus](mailto:tangrufus@gmail.com)
+
+## Troubleshooting
+
+### `getaddrinfo: nodename nor servname provided, or not known`
+
+Make sure your hosts file (`/etc/hosts`) contains all the domains you're self-signing.
+
+Usually it can be rectified by `$ vagrant reload --provision` or `$ vagrant hostmanager`.
+
+Ask on [Root Discourse](https://discourse.roots.io/) if the problem persists.
 
 ## Feedback
 
