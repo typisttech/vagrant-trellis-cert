@@ -12,22 +12,21 @@ Trust Trellis self-signed certificates with a single command
 <!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
 
 
-- [Vagrant Trellis Cert](#vagrant-trellis-cert)
-  - [Minimum Requirements](#minimum-requirements)
-  - [Installation](#installation)
-  - [Usage](#usage)
-  - [It looks awesome. Where can I find some more goodies like this?](#it-looks-awesome-where-can-i-find-some-more-goodies-like-this)
-  - [Support!](#support)
-    - [Donate](#donate)
-    - [Why don't you hire me?](#why-dont-you-hire-me)
-    - [Want to help in other way? Want to be a sponsor?](#want-to-help-in-other-way-want-to-be-a-sponsor)
-  - [Troubleshooting](#troubleshooting)
-    - [getaddrinfo: nodename nor servname provided, or not known](#getaddrinfo-nodename-nor-servname-provided-or-not-known)
-  - [Feedback](#feedback)
-  - [Change log](#change-log)
-  - [Author Information](#author-information)
-  - [Contributing](#contributing)
-  - [License](#license)
+- [Minimum Requirements](#minimum-requirements)
+- [Installation](#installation)
+- [Usage](#usage)
+- [It looks awesome. Where can I find some more goodies like this?](#it-looks-awesome-where-can-i-find-some-more-goodies-like-this)
+- [Support!](#support)
+  - [Donate](#donate)
+  - [Why don't you hire me?](#why-dont-you-hire-me)
+  - [Want to help in other way? Want to be a sponsor?](#want-to-help-in-other-way-want-to-be-a-sponsor)
+- [Troubleshooting](#troubleshooting)
+  - [`getaddrinfo: nodename nor servname provided, or not known`](#getaddrinfo-nodename-nor-servname-provided-or-not-known)
+- [Feedback](#feedback)
+- [Change log](#change-log)
+- [Author Information](#author-information)
+- [Contributing](#contributing)
+- [License](#license)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
