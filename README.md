@@ -84,6 +84,12 @@ Ready to take freelance WordPress jobs. Contact me via the contact form [here](h
 
 Contact: [Tang Rufus](mailto:tangrufus@gmail.com)
 
+## Troubleshooting
+
+`getaddrinfo: nodename nor servname provided, or not known`
+
+Make sure your hosts file contains all urls you're self-signing.
+
 ## Feedback
 
 **Please provide feedback!** We want to make this library useful in as many projects as possible.
