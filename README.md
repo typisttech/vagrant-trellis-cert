@@ -1,49 +1,45 @@
+<div align="center">
+
 # Vagrant Trellis Cert
 
-[![Gem](https://img.shields.io/gem/v/vagrant-trellis-cert.svg)](https://rubygems.org/gems/vagrant-trellis-cert)
-[![Gem](https://img.shields.io/gem/dt/vagrant-trellis-cert.svg)](https://rubygems.org/gems/vagrant-trellis-cert)
-[![license](https://img.shields.io/github/license/TypistTech/vagrant-trellis-cert.svg)](https://github.com/TypistTech/vagrant-trellis-cert/blob/master/LICENSE)
-[![Donate via PayPal](https://img.shields.io/badge/Donate-PayPal-blue.svg)](https://www.typist.tech/donate/vagrant-trellis-cert/)
-[![Hire Typist Tech](https://img.shields.io/badge/Hire-Typist%20Tech-ff69b4.svg)](https://www.typist.tech/contact/)
+</div>
 
-Trust Trellis self-signed certificates with a single command
+<div align="center">
 
-<!-- START doctoc generated TOC please keep comment here to allow auto update -->
-<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+[![Gem](https://img.shields.io/gem/v/vagrant-trellis-cert.svg?style=flat-square)](https://rubygems.org/gems/vagrant-trellis-cert)
+[![Gem](https://img.shields.io/gem/dt/vagrant-trellis-cert.svg?style=flat-square)](https://rubygems.org/gems/vagrant-trellis-cert)
+[![license](https://img.shields.io/github/license/TypistTech/vagrant-trellis-cert.svg?style=flat-square)](https://github.com/TypistTech/vagrant-trellis-cert/blob/master/LICENSE)
+[![Twitter Follow @TangRufus](https://img.shields.io/twitter/follow/TangRufus?style=flat-square&color=1da1f2&logo=twitter)](https://twitter.com/tangrufus)
+[![Hire Typist Tech](https://img.shields.io/badge/Hire-Typist%20Tech-ff69b4.svg?style=flat-square)](https://www.typist.tech/contact/)
 
+</div>
 
-- [Minimum Requirements](#minimum-requirements)
-- [Installation](#installation)
-- [Usage](#usage)
-- [It looks awesome. Where can I find some more goodies like this?](#it-looks-awesome-where-can-i-find-some-more-goodies-like-this)
-- [Support!](#support)
-  - [Donate](#donate)
-  - [Why don't you hire me?](#why-dont-you-hire-me)
-  - [Want to help in other way? Want to be a sponsor?](#want-to-help-in-other-way-want-to-be-a-sponsor)
-- [Troubleshooting](#troubleshooting)
-  - [`getaddrinfo: nodename nor servname provided, or not known`](#getaddrinfo-nodename-nor-servname-provided-or-not-known)
-- [Feedback](#feedback)
-- [Change log](#change-log)
-- [Author Information](#author-information)
-- [Contributing](#contributing)
-- [License](#license)
+<p align="center">
+  <strong>Trust Trellis self-signed certificates with a single command</strong>
+  <br />
+  <br />
+  Built with ♥ by <a href="https://www.typist.tech/">Typist Tech</a>
+</p>
 
-<!-- END doctoc generated TOC please keep comment here to allow auto update -->
+---
 
-## Minimum Requirements
+**Vagrant Trellis Cert** is an open source project and completely free to use.
 
-- macOS 10.13.3
-- Vagrant 2.0.3
+However, the amount of effort needed to maintain and develop new features is not sustainable without proper financial backing. If you have the capability, please consider donating using the links below:
 
-## Installation
+<div align="center">
 
-```bash
-$ vagrant plugin install vagrant-trellis-cert
-```
+[![GitHub via Sponsor](https://img.shields.io/badge/Sponsor-GitHub-ea4aaa?style=flat-square&logo=github)](https://github.com/sponsors/TangRufus)
+[![Sponsor via PayPal](https://img.shields.io/badge/Sponsor-PayPal-blue.svg?style=flat-square&logo=paypal)](https://typist.tech/go/paypal-donate/)
+[![More Sponsorship Information](https://img.shields.io/badge/Sponsor-More%20Details-ff69b4?style=flat-square)](https://typist.tech/donate/imposter-plugin/)
+
+</div>
+
+---
 
 ## Usage
 
-```bash
+```sh-session
 Usage: vagrant trellis-cert trust [options] [vm-id]
 Usage: vagrant trellis-cert distrust [options] [vm-id]
 
@@ -63,32 +59,28 @@ $ vagrant trellis-cert trust fb90ab5
 $ vagrant trellis-cert distrust fb90ab5
 ```
 
-## It looks awesome. Where can I find some more goodies like this?
+---
 
-* Articles on Typist Tech's [blog](https://typist.tech)
-* [Tang Rufus' WordPress plugins](https://profiles.wordpress.org/tangrufus#content-plugins) on wp.org
-* More projects on [Typist Tech's GitHub profile](https://github.com/TypistTech)
-* Stay tuned on [Typist Tech's newsletter](https://typist.tech/go/newsletter)
-* Follow [Tang Rufus' Twitter account](https://twitter.com/TangRufus)
-* Hire [Tang Rufus](https://typist.tech/contact) to build your next awesome site
+<p align="center">
+  <strong>Typist Tech is ready to build your next awesome WordPress site. <a href="https://typist.tech/contact/">Hire us!</a></strong>
+</p>
 
-## Support!
+---
 
-### Donate
+## Minimum Requirements
 
-Love Vagrant Trellis Cert? Help me maintain it, a [donation here](https://typist.tech/donation/) can help with it.
+- macOS 10.13.3
+- Vagrant 2.0.3
 
-### Why don't you hire me?
+## Installation
 
-Ready to take freelance WordPress jobs. Contact me via the contact form [here](https://typist.tech/contact/) or, via email [info@typist.tech](mailto:info@typist.tech)
+```sh-session
+$ vagrant plugin install vagrant-trellis-cert
+```
 
-### Want to help in other way? Want to be a sponsor?
+## FAQ
 
-Contact: [Tang Rufus](mailto:tangrufus@gmail.com)
-
-## Troubleshooting
-
-### `getaddrinfo: nodename nor servname provided, or not known`
+### What to do when `getaddrinfo: nodename nor servname provided, or not known`
 
 Make sure your hosts file (`/etc/hosts`) contains all the domains you're self-signing.
 
@@ -96,27 +88,43 @@ Usually it can be rectified by `$ vagrant reload --provision` or `$ vagrant host
 
 Ask on [Root Discourse](https://discourse.roots.io/) if the problem persists.
 
+### It looks awesome. Where can I find some more goodies like this
+
+- Articles on [Typist Tech's blog](https://typist.tech)
+- [Tang Rufus' WordPress plugins](https://profiles.wordpress.org/tangrufus#content-plugins) on wp.org
+- More projects on [Typist Tech's GitHub profile](https://github.com/TypistTech)
+- Stay tuned on [Typist Tech's newsletter](https://typist.tech/go/newsletter)
+- Follow [Tang Rufus' Twitter account](https://twitter.com/TangRufus)
+- **Hire [Tang Rufus](https://typist.tech/contact) to build your next awesome site**
+
+### Where can I give 5-star reviews?
+
+Thanks! Glad you like it. It's important to let me knows somebody is using this project. Please consider:
+
+- [tweet](https://twitter.com/intent/tweet?text=Vagrant%20Trellis%20Cert%20-%20Trust%20Trellis%20self-signed%20certificates%20with%20a%20single%20command&url=https://github.com/TypistTech/vagrant-trellis-cert&hashtags=webdev,wordpress&via=TangRufus&url=https://github.com/TypistTech/vagrant-trellis-cert&hashtags=webdev,wordpress&via=TangRufus) something good with mentioning [@TangRufus](https://twitter.com/tangrufus)
+- ★ star [the Github repo](https://github.com/TypistTech/vagrant-trellis-cert)
+- [👀 watch](https://github.com/TypistTech/vagrant-trellis-cert/subscription) the Github repo
+- write tutorials and blog posts
+- **[hire](https://www.typist.tech/contact/) Typist Tech**
+
 ## Feedback
 
-**Please provide feedback!** We want to make this library useful in as many projects as possible.
-Please submit an [issue](https://github.com/TypistTech/vagrant-trellis-cert/issues/new) and point out what you do and don't like, or fork the project and make suggestions.
+**Please provide feedback!** We want to make this project as useful as possible.
+Please [submit an issue](https://github.com/TypistTech/vagrant-trellis-cert/issues/new) and point out what you do and don't like, or fork the project and [send pull requests](https://github.com/TypistTech/vagrant-trellis-cert/pulls/).
 **No issue is too small.**
 
-## Change log
+## Security Vulnerabilities
 
-Please see [CHANGELOG](./CHANGELOG.md) for more information on what has changed recently.
+If you discover a security vulnerability within this project, please email us at [vagrant-trellis-cert@typist.tech](mailto:vagrant-trellis-cert@typist.tech). 
+All security vulnerabilities will be promptly addressed.
 
-## Author Information
+## Credits
 
 [Vagrant Trellis Cert](https://github.com/TypistTech/vagrant-trellis-cert) is a [Typist Tech](https://www.typist.tech) project and maintained by [Tang Rufus](https://twitter.com/Tangrufus), freelance developer for [hire](https://www.typist.tech/contact/).
 
 Special thanks to [the Roots team](https://roots.io/about/) whose [Trellis](https://github.com/roots/trellis) make this project possible.
 
 Full list of contributors can be found [here](https://github.com/TypistTech/vagrant-trellis-cert/graphs/contributors).
-
-## Contributing
-
-Please see [CODE_OF_CONDUCT](./CODE_OF_CONDUCT.md) for details.
 
 ## License
 
