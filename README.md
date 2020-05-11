@@ -78,7 +78,7 @@ $ vagrant trellis-cert distrust fb90ab5
 $ vagrant plugin install vagrant-trellis-cert
 ```
 
-## FAQ
+## FAQs
 
 ### What to do when `getaddrinfo: nodename nor servname provided, or not known`
 
