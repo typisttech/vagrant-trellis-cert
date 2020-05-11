@@ -10,16 +10,16 @@ Gem::Specification.new do |spec|
   spec.authors       = ['Tang Rufus', 'Typist Tech']
   spec.email         = ['tangrufus@gmail.com', 'vagrant-trellis-cert@typist.tech']
   spec.metadata      = {
-    'homepage_uri': 'https://typist.tech/projects/vagrant-trellis-cert',
-    'changelog_uri': 'https://github.com/TypistTech/vagrant-trellis-cert/blob/master/CHANGELOG.md',
-    'source_code_uri': 'https://github.com/TypistTech/vagrant-trellis-cert',
-    'bug_tracker_uri': 'https://github.com/TypistTech/vagrant-trellis-cert/issues',
+    'homepage_uri' => 'https://typist.tech/projects/vagrant-trellis-cert/',
+    'source_code_uri' => 'https://github.com/TypistTech/vagrant-trellis-cert',
+    'bug_tracker_uri' => 'https://github.com/TypistTech/vagrant-trellis-cert/issues',
+    'mailing_list_uri' => 'https://typist.tech/go/newsletter/',
   }
   spec.summary       = VagrantPlugins::TrellisCert::Identity.summary
   spec.homepage      = 'https://typist.tech/projects/vagrant-trellis-cert'
   spec.license       = 'MIT'
 
-  spec.required_ruby_version = '~> 2.4.2'
+  spec.required_ruby_version = ['~> 2.4', '>= 2.4.2']
 
   spec.files = `git ls-files -z`.split("\x0").reject do |f|
     f.match(%r{^(test|spec|features)/})
@@ -28,7 +28,6 @@ Gem::Specification.new do |spec|
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ['lib']
 
-  spec.add_development_dependency 'bundler', '~> 1.16'
-  spec.add_development_dependency 'rake', '~> 12.0'
-  spec.add_development_dependency 'rubocop', '~> 0.54.0'
+  spec.add_development_dependency 'bundler', '~> 2.1', '>= 2.1.4'
+  spec.add_development_dependency 'rake', '~> 13.0', '>= 13.0.1'
 end
